@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../Card';
 import Api from '../../../api/api';
+import "./index.css";
 
 
 const Tasks = () => {
@@ -21,7 +22,7 @@ const Tasks = () => {
   return(
     <div>
       
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div id="body" className="row row-cols-1 row-cols-md-3 g-4" >
         {
           tasks.map((task) => (
             <Card key={task._id} task={task}/>

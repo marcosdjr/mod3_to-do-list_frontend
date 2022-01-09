@@ -1,5 +1,5 @@
 const Api = {
-    apiUrl: 'http://to-do-list.yblge.mongodb.net/to-do-list',
+    apiUrl: 'https://mod3-todolist-backend.herokuapp.com/tasks',
     fetchGetAll: () => fetch(Api.apiUrl),
     fetchGetById: (id) => fetch(`${Api.apiUrl}/${id}`),
     fetchPost: (data) => {

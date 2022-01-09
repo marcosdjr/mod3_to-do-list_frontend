@@ -1,0 +1,34 @@
+
+#card-body {
+    width: 100%;
+}
+
+#title {
+    color: #fff;
+    background-color: rgb(35, 112, 226);
+    font-size: 20px;
+
+}
+
+#priority {
+    color: white;
+    background-color: rgba(250, 65, 65, 0.774);
+    
+}
+#status {
+    color: rgb(65, 119, 236);
+    background-color: rgb(46, 255, 46);
+
+}
+#deadline {
+    color: rgba(0, 255, 119, 0.966);
+    background-color: rgb(253, 92, 253);
+}
+
+#description {
+    color: red;
+    background-color: rgb(255, 255, 59);
+    height: 100px;
+    
+    overflow: hidden;
+}
