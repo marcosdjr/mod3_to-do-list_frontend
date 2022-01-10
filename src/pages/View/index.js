@@ -2,23 +2,24 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Api from '../../api/api';
 import "./index.css";
-
-// import 'react-responsive-modal/styles.css';
-// import { Modal } from 'react-responsive-modal';
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
+import { parseISO, format } from 'date-fns';
 
 const View = () => {
     const navigate = useNavigate();
     const [task, setTask] = useState({});
     const [open, setOpen] = useState(false);
 
+    
     useEffect(() => {
         getTaskById();
     }, [])
 
     const { id } = useParams();
 
-    const abreModal = () => setOpen(true);
-    const fechaModal = () => setOpen(false);
+    const openModal = () => setOpen(true);
+    const closeModal = () => setOpen(false);
 
     const getTaskById = async () => {
         const request = await Api.fetchGetById(id);
@@ -33,7 +34,7 @@ const View = () => {
         alert(data.message)
         navigate('/');
     }
-
+ 
 
     return (
         <div className='container'>
@@ -46,7 +47,7 @@ const View = () => {
                             <div className='col-6'>
                                 <div>
                                     <label htmlFor='title'>Tarefa:</label>
-                                    <h2 id='title' className='text-center'> {task.title}</h2>
+                                    <h2 id='viewtitle' className='text-center'> {task.title}</h2>
                                 </div>
                             </div>
                             <div className='col-6'>
@@ -71,6 +72,12 @@ const View = () => {
                             </div>
                             <div className='col-12'>
                                 <div className='form-group'>
+                                    <label htmlFor='creationDate'>Criada em:</label>
+                                    <h2 id='creationDate' className='text-center'> {task.creationDate}</h2>
+                                </div>
+                            </div>
+                            <div className='col-12'>
+                                <div className='form-group'>
                                     <label htmlFor='description'>Descrição:</label>
                                     <h2 id='description' className='text-center'> {task.description}</h2>
                                 </div>
@@ -78,31 +85,23 @@ const View = () => {
                         </div>
                         <div className='row'>
                             <div className='col-12 text-center'>
-                                <button className='btn btn-success me-2' type='submit'>Enviar</button>
-                                <a className='btn btn-secondary' href="/">Voltar</a>
+                                <a className='btn btn-warning view' href={`/edit/${task._id}`}>Editar</a>
+                                <button className='btn btn-danger me-2' onClick={openModal}>Excluir</button>
+                                <a className='btn btn-secondary view' href="/">Voltar</a>
                             </div>
                         </div>
                 </div>
             </div>
-
-            {/* <div className='row my-5'>
-        <div className='col-12'>
-          <div className='card p-3'>
-           
-            <div className='btn-group my-3 w-100'>
-              <Link to={`/edit/${task._id}`} className='btn btn-info text-white'>Editar</Link>
-              <button className='btn btn-danger' onClick={abreModal}>Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Modal open={open} onClose={fechaModal} center>
-        <h2 className='my-4'>Deseja realmente excluir o task ?</h2>
+            
+      <Modal open={open} onClose={closeModal} center >
+          <div id="modalColor">
+        <h2 className='my-4'>Deseja realmente excluir a tarefa?</h2>
         <div className='d-flex w-50 mx-auto justify-content-around'>
-          <button className='btn btn-danger me-2' onClick={fechaModal}>Não</button>
+          <button className='btn btn-danger me-2' onClick={closeModal}>Não</button>
           <button className='btn btn-success' onClick={handleDelete}>Sim</button>
         </div>
-      </Modal> */}
+        </div>
+      </Modal>
         </div>
     )
 }
