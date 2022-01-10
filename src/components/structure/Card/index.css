@@ -24,6 +24,10 @@
     color: rgba(0, 255, 119, 0.966);
     background-color: rgb(253, 92, 253);
 }
+#creationDate {
+    color: rgba(255, 0, 234, 0.966);
+    background-color: rgb(92, 194, 253);
+}
 
 #description {
     color: red;
@@ -31,4 +35,11 @@
     height: 100px;
     
     overflow: hidden;
+}
+.card {
+    margin: 0px;
+}
+
+#cardHolder {
+    border-radius: 15px;
 }
