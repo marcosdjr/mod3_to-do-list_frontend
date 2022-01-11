@@ -13,6 +13,10 @@ const Tasks = () => {
 
   const getTasks = async () => {
     const response = await Api.fetchGetAll();
+    if(response.status >= 400 && response.status <= 600) {
+      alert('Não foi possível acessar. Verifique sua API.')
+    }
+
     const tasksApi = await response.json();
     console.log('RESPOSTA DA API', tasksApi);
     setTasks(tasksApi);

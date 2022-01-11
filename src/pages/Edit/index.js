@@ -24,6 +24,7 @@ const Edit = () => {
     const response = await Api.fetchGetById(id);
     const task = await response.json();
     setTask(task);
+    
   };
 
   const handleFieldsChange = (event) => {
@@ -38,6 +39,9 @@ const Edit = () => {
     event.preventDefault();
 
     const response = await Api.fetchPut(task, id);
+    if (response.status > 500) {
+      alert('Erro no servidor.', response.message)
+    }
     const data = await response.json();
     alert(data.message);
 
