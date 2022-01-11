@@ -27,6 +27,9 @@ const Insert = () => {
 
     const response = await Api.fetchPost(task);
     const result = await response.json();
+    if (result.status > 500) {
+      alert('Erro no servidor.', result.message)
+    }
 
     alert(result.message);
     navigate('/');

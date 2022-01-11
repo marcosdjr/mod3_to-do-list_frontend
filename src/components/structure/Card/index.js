@@ -6,7 +6,7 @@ import { parseISO, format } from 'date-fns';
 const Card = (props) => {
   const task = props.task;
   const date = task.creationDate;
-  const formattedDate = format(parseISO(date), 'MM/dd/yyyy');
+  const formattedDate = format(parseISO(date), 'dd/MM/yyyy');
   
  
   return (
