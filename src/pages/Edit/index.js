@@ -24,7 +24,6 @@ const Edit = () => {
     const response = await Api.fetchGetById(id);
     const task = await response.json();
     setTask(task);
-    
   };
 
   const handleFieldsChange = (event) => {
@@ -40,7 +39,7 @@ const Edit = () => {
 
     const response = await Api.fetchPut(task, id);
     if (response.status > 500) {
-      alert('Erro no servidor.', response.message)
+      alert("Erro no servidor.", response.message);
     }
     const data = await response.json();
     alert(data.message);
@@ -74,11 +73,17 @@ const Edit = () => {
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="priority">Prioridade:</label>
-                  <select value={task.priority} onChange={handleFieldsChange} id="priority" class="form-select" aria-label="Default select example">
+                  <select
+                    value={task.priority}
+                    onChange={handleFieldsChange}
+                    id="priority"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
                     <option value="Alta">Alta</option>
                     <option value="Média">Média</option>
                     <option value="Baixa">Baixa</option>
-                  </select>                                   
+                  </select>
                 </div>
               </div>
             </div>
@@ -86,11 +91,19 @@ const Edit = () => {
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="status">Status:</label>
-                  <select value={task.status} onChange={handleFieldsChange} id="status" class="form-select" aria-label="Default select example">
-                    <option selected value="Fazer">Fazer</option>
+                  <select
+                    value={task.status}
+                    onChange={handleFieldsChange}
+                    id="status"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected value="Fazer">
+                      Fazer
+                    </option>
                     <option value="Fazendo">Fazendo</option>
                     <option value="Feito">Feito</option>
-                  </select>  
+                  </select>
                 </div>
               </div>
               <div className="col-6">

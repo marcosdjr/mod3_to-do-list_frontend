@@ -1,14 +1,13 @@
 h1 {
-    background-color: inherit;
-    color: rgb(62, 37, 149);
+  background-color: inherit;
+  color: rgb(62, 37, 149);
 }
 
 ul {
-    color: #fff;
+  color: #fff;
 }
 
 .nav-link {
-    font-size: 20px;
-    color: white;
-    
+  font-size: 20px;
+  color: white;
 }

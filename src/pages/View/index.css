@@ -1,23 +1,23 @@
 h2 {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 #viewtitle {
-    font-size: 30px;
-    color: #fff;
-    background-color: rgb(35, 112, 226);
+  font-size: 30px;
+  color: #fff;
+  background-color: rgb(35, 112, 226);
 }
 
 .view {
-    margin: 0 8px 0 0;
+  margin: 0 8px 0 0;
 }
 
 .react-responsive-modal-modal {
-    background-color: green;
+  background-color: green;
 }
 
 #modalColor {
-    background-color: mediumvioletred;   
-    color: yellow;
-    padding: 30px;
+  background-color: mediumvioletred;
+  color: yellow;
+  padding: 30px;
 }

@@ -11,7 +11,6 @@ const View = () => {
   const [task, setTask] = useState({});
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState("");
-  
 
   useEffect(() => {
     getTaskById();
@@ -26,31 +25,30 @@ const View = () => {
     try {
       const request = await Api.fetchGetById(id);
       if (request.status >= 400 && request.status < 500) {
-        alert('Erro na API, id/tarefa inválida.')
+        alert("Erro na API, id/tarefa inválida.");
       }
       if (request.status > 500) {
-        alert('Erro no servidor.')
+        alert("Erro no servidor.");
       }
       const task = await request
-      .json()
-      .catch(err => console.log('ERRO', err));
-        const datet = task.creationDate;
-        const date = format(parseISO(datet), 'dd/MM/yyyy');
-        
-        setTask(task);
-        setDate(date);
-      } catch (err) {
-        console.log('erro', err);
-      }
-      
-    };
+        .json()
+        .catch((err) => console.log("ERRO", err));
+      const datet = task.creationDate;
+      const date = format(parseISO(datet), "dd/MM/yyyy");
+
+      setTask(task);
+      setDate(date);
+    } catch (err) {
+      console.log("erro", err);
+    }
+  };
 
   const handleDelete = async () => {
     const response = await Api.fetchDelete(id);
     const data = await response.json();
     if (response.status > 500) {
-        alert('Erro no servidor.', response.message)
-      }
+      alert("Erro no servidor.", response.message);
+    }
     alert(data.message);
     navigate("/");
   };
